@@ -1,0 +1,22 @@
+{% macro base(data) %}
+  <div class="card">
+    <div class="card-image">
+      <figure class="image is-4by3">
+        {% if apos.images.first(data.thumbnail) %}
+          {% set img = apos.images.first(data.thumbnail) %}
+        {% endif %}
+        {% if img %}
+          <img src="{{ apos.attachments.url(img, { size: 'max' }) }}">
+        {% endif %}
+      </figure>
+    </div>
+    <div class="card-content">
+      <p class="title is-4">{{ data.title }}</p>
+      <p class="title is-7">{{ data.meta }}</p>
+      <div class="content">
+        <p>{{ data.text }}</p> 
+      </div>
+      <a href="{{ data.url }}">See More...</a>
+    </div>
+  </div>
+{% endmacro %}

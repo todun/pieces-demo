@@ -1,0 +1,21 @@
+{% import 'macros/card.html' as card with context %}
+
+
+{% set widget = data.widget %}
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline">
+      {% for piece in widget._pieces %}
+        <div class="column is-one-quarter">
+          {{ card.base({
+            thumbnail: piece.thumbnail,
+            title: piece.title,
+            meta: piece.phoneNumber,
+            text: piece.bio,
+            url: piece._url
+          }) }}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
